@@ -41,6 +41,7 @@ section {
   background: url(../assets/img/background.jpg);
   background-size: cover;
   background-position: bottom;
+  background-attachment: fixed;
   z-index: 2;
 }
 
@@ -128,11 +129,9 @@ section {
 
 /* Header */
 #header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 50px;
+  height: 61px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -140,9 +139,10 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 900px;
   width: 100%;
   height: 100%;
-  padding: 0 1rem;
+  margin: 0 auto;
   color: #222;
   text-transform: uppercase;
 }
@@ -168,7 +168,6 @@ section {
 }
 
 .nav-item a:hover {
-  opacity: 0.8;
   transform: scale(1.2);
 }
 
@@ -178,7 +177,7 @@ section {
 
 .logo {
   position: absolute;
-  top: 10px;
+  top: 15.5px;
   left: 10px;
   display: none;
   width: 30px;
@@ -193,7 +192,7 @@ section {
 
 .hamburger-menu {
   position: absolute;
-  top: 10px;
+  top: 15.5px;
   right: 10px;
   display: none;
   flex-direction: column;
@@ -209,6 +208,7 @@ section {
   height: 3px;
   border-radius: 5px;
   background-color: #222;
+  pointer-events: none;
 }
 
 .bar::before,
@@ -237,12 +237,26 @@ section {
   /* Home */
 
   /* Header */
+  #header {
+    transition: 0.5s linear;
+  }
+
+  #header.show {
+    height: 265px;
+  }
   .navbar {
     position: absolute;
-    top: 50px;
+    top: 61px;
     flex-direction: column;
-    height: max-content;
+    height: 0;
+    padding: 0;
     font-size: 2rem;
+    overflow: hidden;
+    transition: 0.5s linear;
+  }
+
+  .show .navbar {
+    height: 204px;
   }
 
   .navbar a {
@@ -250,6 +264,11 @@ section {
     width: 100%;
     border-bottom: 1px solid rgba(215, 215, 215, 0.3);
     padding: 1.5rem 0;
+  }
+
+  .navbar a:hover {
+    background-color: rgba(34, 34, 34, 0.9);
+    color: #fff;
   }
 
   .nav-list {
