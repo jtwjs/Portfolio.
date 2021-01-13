@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./src/assets/img/W_logo.png" type="image/png">
+    <link rel="icon" href="./src/assets/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link rel="stylesheet" href="./src/css/main.css">
@@ -13,11 +13,11 @@
 <body>
     <section id="home" class="intro-page">
         <div class="container">
-            <div class="content">
+            <div class="content" data-speed="0.1">
                 <p>안녕하세요! <strong class="typing"></strong></p>
                 <h2>프론트엔드 개발자 <strong>정태웅</strong>입니다.</h2>
             </div>
-            <div class="next-page">
+            <div class="next-page" data-category="#about">
                 <i class="fas fa-chevron-down"></i>
                 <span class="page-guide">
                     다음 페이지로 이동
@@ -28,13 +28,13 @@
     <main id="main">
         <header id="header">
             <nav class="navbar">
-                <a href="#a" class="home">
+                <a href="#a" class="home" data-category="#home">
                     home
                 </a>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#a" class="about">about</a></li>
-                    <li class="nav-item"><a href="#a" class="pojects">projects</a></li>
-                    <li class="nav-item"><a href="#a" class="contact">contact</a></li>
+                    <li class="nav-item"><a href="#a" class="about" data-category="#about">about</a></li>
+                    <li class="nav-item"><a href="#a" class="pojects" data-category="#projects">projects</a></li>
+                    <li class="nav-item"><a href="#a" class="contact" data-category="#contact">contact</a></li>
                 </ul>
             </nav>
             <div class="logo">
