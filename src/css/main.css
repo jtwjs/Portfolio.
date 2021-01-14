@@ -135,7 +135,6 @@ section:not(:first-child) .container {
 #main {
   position: relative;
   width: 100%;
-  padding-top: 61px;
 }
 
 /* Header */
@@ -252,6 +251,10 @@ section:not(:first-child) .container {
 }
 
 /* About */
+
+#about {
+  padding-top: 61px;
+}
 
 .title {
   margin-bottom: 80px;
