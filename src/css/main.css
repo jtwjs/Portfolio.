@@ -396,6 +396,37 @@ section:not(:first-child) .container {
   background: linear-gradient(to right, #d7dde8, #757f9a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+/* Footer */
+#footer {
+  width: 100%;
+  height: 5rem;
+  background-color: #222;
+}
+
+#footer .content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.git-link-btn {
+  position: absolute;
+  right: 0;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.git-link-btn i {
+  font-size: 2rem;
+}
+
 @media screen and (max-width: 1024px) {
   /* About */
   .skills {
@@ -417,7 +448,7 @@ section:not(:first-child) .container {
   }
   /* Home */
   #home .content {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .content strong {
@@ -425,7 +456,7 @@ section:not(:first-child) .container {
   }
 
   .content p {
-    padding: 0 0.75rem;
+    padding: 0 0.3rem;
   }
 
   .space {
@@ -507,5 +538,19 @@ section:not(:first-child) .container {
 
   .column-desc {
     font-size: 0.8rem;
+  }
+
+  /* Footer */
+  #footer {
+    height: 3.5rem;
+  }
+
+  #footer .content {
+    padding: 0 2rem;
+    font-size: 0.7rem;
+  }
+
+  .git-link-btn i {
+    font-size: 1.5rem;
   }
 }
