@@ -87,12 +87,19 @@ video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   height: 100%;
 }
 
 body {
   min-height: 100%;
+  line-height: 1;
 }
 
 article,
@@ -108,9 +115,7 @@ nav,
 section {
   display: block;
 }
-body {
-  line-height: 1;
-}
+
 ol,
 ul {
   list-style: none;
