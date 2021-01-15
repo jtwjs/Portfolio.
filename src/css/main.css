@@ -260,6 +260,8 @@ section:not(:first-child) .container {
   margin-bottom: 80px;
   font-size: 2rem;
   font-weight: 600;
+  color: #0c154a;
+  cursor: default;
 }
 
 .profile {
@@ -326,6 +328,7 @@ section:not(:first-child) .container {
 }
 
 .icon {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -338,8 +341,21 @@ section:not(:first-child) .container {
   cursor: pointer;
 }
 
-.icon:hover {
-  border-color: #516279;
+.icon::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #0c154a;
+  border-radius: 50%;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: 0.3s linear;
+}
+
+.icon:hover.icon::after {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .icon i {
@@ -372,6 +388,12 @@ section:not(:first-child) .container {
 
 .enter {
   display: block;
+}
+
+#projects {
+  background: #757f9a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #d7dde8, #757f9a); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #d7dde8, #757f9a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 @media screen and (max-width: 1024px) {
