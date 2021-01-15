@@ -16,6 +16,12 @@ import Typing from './typing.js';
             values: {
                 skillColumn_opacity: [0, 1, {start: 0.65, end: 0.9}],
                 skillColumn_translateY:[1, 0, {start:0.65, end: 0.9}],
+                skillColumn_mobile_opacity: [[0, 1, {start: 0.3, end: 0.5}],
+                                            [0, 1, {start: 0.5, end: 0.7}],
+                                            [0, 1, {start: 0.7, end: 0.9}]],
+                skillColumn_mobile_tanslateY: [[1, 0, {start: 0.3, end: 0.5}],
+                                            [1, 0, {start: 0.5, end: 0.7}],
+                                            [1, 0, {start: 0.7, end: 0.9}]],
             }
         },
         {   
@@ -41,6 +47,10 @@ import Typing from './typing.js';
     let prevScrollHeight = 0;
     let currentScene = 0;
     let enterNewScene = false;
+    let isMobile = matchMedia("screen and (max-width:1024px)").matches;
+
+
+
 
     function setLayout() {
         const mainSectionList = Array.from(mainElem.children)
@@ -97,8 +107,14 @@ import Typing from './typing.js';
                 objs.homeContentElem.style.transform = `translateY(${yOffset * speed}px)`;
                 const columnList = Array.from(objs.skillColumnElem);
                 for(const idx in columnList) {
-                    columnList[idx].style.opacity = `${calcValues(values.skillColumn_opacity, currentYOffset)}`;
-                    columnList[idx].style.transform = `translateY(${calcValues(values.skillColumn_translateY, currentYOffset) * 100 }px)`;
+                    if(isMobile) {
+                        columnList[idx].style.opacity = `${calcValues(values.skillColumn_mobile_opacity[idx], currentYOffset)}`;
+                        columnList[idx].style.transform = `translateY(${calcValues(values.skillColumn_mobile_tanslateY[idx], currentYOffset) * 100 }px)`;
+                    } else {
+                        columnList[idx].style.opacity = `${calcValues(values.skillColumn_opacity, currentYOffset)}`;
+                        columnList[idx].style.transform = `translateY(${calcValues(values.skillColumn_translateY, currentYOffset) * 100 }px)`;
+                    }
+                    
                 };
                 
                 break;
@@ -124,13 +140,12 @@ import Typing from './typing.js';
         } else if(currentYOffset > partScrollEnd) {
             result = values[1];
         }
-
+        console.log(result);
         return result;
     }
 
     function headerClickHandler(e) {
         let target = e.target;
-        console.log(target);
         if(target.matches('.hamburger-menu')) {
             headerElem.classList.toggle('show');
             }
@@ -166,7 +181,6 @@ import Typing from './typing.js';
         });
         window.addEventListener('scroll', () => {
             yOffset = window.pageYOffset;
-            console.log(yOffset);
             scrollLoop();
             headerFixHandler();
         });
@@ -176,6 +190,5 @@ import Typing from './typing.js';
             setLayout();
         });
     }
-    console.log(document.body.offsetHeight - innerHeight);
     init();
 })();
