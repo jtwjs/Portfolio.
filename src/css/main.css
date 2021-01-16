@@ -426,6 +426,23 @@ section:not(:first-child) .container {
 }
 
 /* Contact */
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-70%);
+  }
+  60% {
+    transform: translateY(-35%);
+  }
+}
+
 #contact .content {
   display: flex;
   flex-direction: column;
@@ -440,11 +457,12 @@ section:not(:first-child) .container {
 
 .send-email {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 4rem;
   font-weight: 600;
   line-height: 1.5;
   transition: 0.2s linear;
+  color: #222;
 }
 
 .send-email::after {
@@ -452,9 +470,9 @@ section:not(:first-child) .container {
   position: absolute;
   top: 0;
   left: 0;
-  color: orange;
+  color: #ffc82c;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-  transition: 0.2s linear;
+  transition: 0.4s linear;
 }
 
 .send-email:hover {
@@ -467,6 +485,10 @@ section:not(:first-child) .container {
 
 #contact .sub-text {
   font-size: 1.2rem;
+}
+
+.send-email:hover + .sub-text {
+  animation: bounce 1s ease-out;
 }
 
 @media screen and (max-width: 1024px) {
