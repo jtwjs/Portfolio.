@@ -51,6 +51,10 @@ import Typing from './typing.js';
 
 
 
+    function setPropertyViewportHieght() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 
     function setLayout() {
         const mainSectionList = Array.from(mainElem.children)
@@ -72,6 +76,7 @@ import Typing from './typing.js';
     function scrollLoop() {
         enterNewScene = false;
         prevScrollHeight = 0;
+
         for(let i=0; i<currentScene; i++) {
             prevScrollHeight += sceneInfo[i].scrollHeight;
         }
@@ -174,6 +179,7 @@ import Typing from './typing.js';
     }
 
     function init() {
+        setPropertyViewportHieght();
         typing.play();
         headerElem.addEventListener('click',headerClickHandler);
         nextPageBtn.addEventListener('click', function () {
@@ -189,6 +195,13 @@ import Typing from './typing.js';
             headerFixHandler();
             setLayout();
         });
+
+        window.addEventListener('orientationchange', () => {
+            setPropertyViewportHieght();
+        });
+        window.addEventListener('resize', () => {
+            setPropertyViewportHieght();
+        })
     }
     init();
 })();

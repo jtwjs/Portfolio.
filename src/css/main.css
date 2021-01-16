@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap");
 
 :root {
+  --vh: 0;
 }
 
 body {
@@ -446,7 +447,17 @@ section:not(:first-child) .container {
   html {
     font-size: 20px;
   }
+
+  section {
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
   /* Home */
+
+  #home {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
   #home .content {
     font-size: 1rem;
   }
