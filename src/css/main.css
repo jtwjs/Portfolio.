@@ -14,8 +14,9 @@ section {
 
 section:not(:first-child) .container {
   max-width: 900px;
+  min-height: inherit;
   margin: 0 auto;
-  padding-top: 5.5rem;
+  padding-top: calc(5.5rem + 61px);
 }
 
 /* Start Page */
@@ -65,6 +66,7 @@ section:not(:first-child) .container {
 
 #home .container {
   position: relative;
+  justify-content: center;
   width: 100%;
   height: 100%;
 }
@@ -72,7 +74,6 @@ section:not(:first-child) .container {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -253,10 +254,6 @@ section:not(:first-child) .container {
 
 /* About */
 
-#about {
-  padding-top: 61px;
-}
-
 .title {
   margin-bottom: 80px;
   font-size: 2rem;
@@ -428,6 +425,50 @@ section:not(:first-child) .container {
   font-size: 2rem;
 }
 
+/* Contact */
+#contact .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+#contact .text {
+  margin-bottom: 3.5rem;
+  font-size: 1.8rem;
+}
+
+.send-email {
+  position: relative;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: 0.2s linear;
+}
+
+.send-email::after {
+  content: "xodnd9503@gmail.com";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: orange;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: 0.2s linear;
+}
+
+.send-email:hover {
+  transform: scale(0.9);
+}
+
+.send-email:hover.send-email::after {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#contact .sub-text {
+  font-size: 1.2rem;
+}
+
 @media screen and (max-width: 1024px) {
   /* About */
   .skills {
@@ -458,6 +499,7 @@ section:not(:first-child) .container {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
   }
+
   #home .content {
     font-size: 1rem;
   }
@@ -543,12 +585,38 @@ section:not(:first-child) .container {
 
   /* About */
 
+  .title {
+    margin-bottom: 61px;
+  }
+
   .skills {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 
   .column-desc {
     font-size: 0.8rem;
+  }
+
+  /* Contact */
+  #contact {
+    min-height: unset;
+  }
+
+  #contact .container {
+    padding: 61px 0;
+  }
+
+  #contact .text {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .send-email {
+    font-size: 7vw;
+  }
+
+  #contact .sub-text {
+    font-size: 3.5vw;
   }
 
   /* Footer */
