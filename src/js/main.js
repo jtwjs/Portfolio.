@@ -232,10 +232,13 @@ import Typing from './typing.js';
         let target = e.target;
         if(target.matches('.item-content')) {
             const project = target.dataset.project;
+            const img = target.querySelector('.project-info img');
             switch(project) {
                 case 'carrotGame': 
-                        const img = target.querySelector('.project-info img');
                         img.src = './src/assets/img/carrot_game.gif';
+                    break;
+                case 'neighborhood':
+                        img.src = './src/assets/img/neighborhood.gif';
                     break;
             }
         }
@@ -245,10 +248,13 @@ import Typing from './typing.js';
         let target = e.target;
         if(target.matches('.item-content')) {
             const project = target.dataset.project;
+            const img = target.querySelector('.project-info img');
             switch(project) {
                 case 'carrotGame': 
-                        const img = target.querySelector('.project-info img');
                         img.src = './src/assets/img/carrot_game.png';
+                    break;
+                case 'neighborhood':
+                        img.src = './src/assets/img/neighborhood.png';
                     break;
             }
         }
