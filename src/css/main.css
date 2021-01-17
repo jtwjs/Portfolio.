@@ -424,11 +424,11 @@ section:not(:first-child) .container {
 }
 
 .project-division::before {
-  left: 84px;
+  left: 33.33%;
 }
 
 .project-division::after {
-  left: 170px;
+  left: 66.66%;
 }
 
 .division-btn {
@@ -727,11 +727,11 @@ section:not(:first-child) .container {
   .nav-list {
     flex-direction: column;
     width: 100%;
-    height: max-content;
   }
 
   .nav-item {
     width: 100%;
+    height: auto;
   }
 
   .nav-item.nav-item:not(:last-child) {
