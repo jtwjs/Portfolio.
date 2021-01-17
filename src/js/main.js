@@ -6,6 +6,23 @@ import Typing from './typing.js';
     const mainElem = document.querySelector('#main');
     const headerElem = document.querySelector('#header');
     const nextPageBtn = document.querySelector('.next-page');
+    const projectElem = document.querySelector('#projects');
+    const projectListElem = document.querySelector('.project-list');
+    const categories = {
+        selectCategory(elem) {
+            selectCategory = elem;
+        },
+
+        inactive(elem) {
+            elem.classList.remove('selected');
+        },
+
+        actvie(elem) {
+            elem.classList.add('selected');
+            this.selectCategory(elem);
+        }
+    };
+
     const sceneInfo = [
         {   
             scrollHeight: 0,
@@ -47,8 +64,8 @@ import Typing from './typing.js';
     let prevScrollHeight = 0;
     let currentScene = 0;
     let enterNewScene = false;
-    let isMobile = matchMedia("screen and (max-width:1024px)").matches;
-
+    let isMobile =  matchMedia("screen and (max-width:1024px)").matches;
+    let selectCategory;
 
 
     function setPropertyViewportHieght() {
@@ -145,7 +162,6 @@ import Typing from './typing.js';
         } else if(currentYOffset > partScrollEnd) {
             result = values[1];
         }
-        console.log(result);
         return result;
     }
 
@@ -178,13 +194,80 @@ import Typing from './typing.js';
         }
     }
 
+    function projectClickHandler(e) {
+        let target = e.target;
+
+        if(target.matches('.division-btn')) {
+            selectCategory = document.querySelector('.division-btn.selected');
+            const division = target.dataset.category;
+            oneOfThem(target);
+            projectListElem.classList.add('ani-out');
+
+            projectListElem.addEventListener('transitionend', () => {
+
+                switch(division) {
+                    case 'all':
+                        projectListElem.setAttribute('class', 'project-list')
+                        break;
+                    case 'front':
+                        projectListElem.setAttribute('class', 'project-list front')
+                        break;
+                    case 'back':
+                        projectListElem.setAttribute('class', 'project-list back')
+                        break;
+                }
+
+            });
+        }
+    }
+
+    function oneOfThem(elem) {
+        if(selectCategory) {
+            categories.inactive(selectCategory);
+        }
+        categories.actvie(elem);
+    }
+
+    function projectHoverHandler(e) {
+        let target = e.target;
+        if(target.matches('.item-content')) {
+            const project = target.dataset.project;
+            switch(project) {
+                case 'carrotGame': 
+                        const img = target.querySelector('.project-info img');
+                        img.src = './src/assets/img/carrot_game.gif';
+                    break;
+            }
+        }
+    }
+
+    function projectMouseOutHandler(e) {
+        let target = e.target;
+        if(target.matches('.item-content')) {
+            const project = target.dataset.project;
+            switch(project) {
+                case 'carrotGame': 
+                        const img = target.querySelector('.project-info img');
+                        img.src = './src/assets/img/carrot_game.png';
+                    break;
+            }
+        }
+    }
+
     function init() {
         setPropertyViewportHieght();
         typing.play();
         headerElem.addEventListener('click',headerClickHandler);
+
         nextPageBtn.addEventListener('click', function () {
             scrollIntoView(this.dataset.category);
         });
+
+        projectElem.addEventListener('click', projectClickHandler);
+        
+        projectListElem.addEventListener('mouseover', projectHoverHandler);
+        projectListElem.addEventListener('mouseout', projectMouseOutHandler);
+
         window.addEventListener('scroll', () => {
             yOffset = window.pageYOffset;
             scrollLoop();
@@ -201,6 +284,9 @@ import Typing from './typing.js';
         });
         window.addEventListener('resize', () => {
             setPropertyViewportHieght();
+            setLayout();
+            isMobile =  matchMedia("screen and (max-width:1024px)").matches;
+            console.log(isMobile);
         })
     }
     init();
