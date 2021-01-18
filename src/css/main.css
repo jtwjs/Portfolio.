@@ -5,19 +5,22 @@
 }
 
 body {
+  position: relative;
   font-family: "Poppins", sans-serif;
 }
 
 section {
+  display: flex;
   min-height: 100vh;
 }
 
 .container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 900px;
-  min-height: inherit;
   margin: 0 auto;
-  padding-top: calc(5.5rem + 61px);
 }
 
 /* Scroll bar */
@@ -92,12 +95,6 @@ section {
   padding-top: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #home .content {
   font-size: 2.5rem;
   line-height: 2;
@@ -158,6 +155,10 @@ section {
 #main {
   position: relative;
   width: 100%;
+}
+
+#main section {
+  padding: calc(5rem + 61px) 0 5rem;
 }
 
 /* Header */
@@ -470,7 +471,7 @@ section {
   grid-auto-rows: 280px;
   gap: 25px;
   width: 100%;
-  padding: 1rem 0 5rem;
+  padding: 1rem 0;
   transition: all 0.3s;
 }
 
@@ -615,6 +616,8 @@ section {
 
 /* Footer */
 #footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   height: 5rem;
   background-color: #222;
@@ -624,13 +627,46 @@ section {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: max-content;
   height: 100%;
   margin: 0 auto;
+  color: #fff;
+}
+#footer .content-top {
+  position: absolute;
+  top: -50%;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background: #222;
+  transition: 0.2s linear;
+}
+
+#footer .content-top:hover {
+  transform: translateY(-5%);
+}
+
+.back-to-top {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 16px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.back-to-top i {
+  pointer-events: none;
+}
+
+#footer .content-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
   padding: 0 2.5rem;
   font-size: 0.8rem;
-  color: #fff;
 }
 
 .git-link-btn {
@@ -664,12 +700,8 @@ section {
   }
 
   /* Contact */
-  #contact {
-    min-height: unset;
-  }
-
-  #contact .container {
-    padding: 61px 0;
+  #contact .content {
+    padding-top: 20rem;
   }
 }
 
@@ -790,6 +822,7 @@ section {
 
   .project-division {
     align-self: center;
+    margin-bottom: 0;
   }
 
   .project-list {
@@ -803,6 +836,9 @@ section {
 
   /* Contact */
 
+  #contact .content {
+    padding-top: 1rem;
+  }
   #contact .text {
     margin-bottom: 2rem;
     font-size: 1rem;
@@ -821,7 +857,7 @@ section {
     height: 3.5rem;
   }
 
-  #footer .content {
+  #footer .content-bottom {
     padding: 0 2rem;
     font-size: 0.7rem;
   }

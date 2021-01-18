@@ -8,6 +8,7 @@ import Typing from './typing.js';
     const nextPageBtn = document.querySelector('.next-page');
     const projectElem = document.querySelector('#projects');
     const projectListElem = document.querySelector('.project-list');
+    const backToTopElem = document.querySelector('.back-to-top');
     const categories = {
         selectCategory(elem) {
             selectCategory = elem;
@@ -268,9 +269,11 @@ import Typing from './typing.js';
         nextPageBtn.addEventListener('click', function () {
             scrollIntoView(this.dataset.category);
         });
+        backToTopElem.addEventListener('click', function () {
+            scrollIntoView(this.dataset.category);
+        })
 
-        projectElem.addEventListener('click', projectClickHandler);
-        
+        projectElem.addEventListener('click', projectClickHandler);        
         projectListElem.addEventListener('mouseover', projectHoverHandler);
         projectListElem.addEventListener('mouseout', projectMouseOutHandler);
 
