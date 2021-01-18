@@ -490,6 +490,7 @@ section {
 
 .project-item {
   width: 100%;
+  transition: 0.3s linear;
 }
 
 .item-content {

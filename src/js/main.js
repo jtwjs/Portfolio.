@@ -8,6 +8,7 @@ import Typing from './typing.js';
     const nextPageBtn = document.querySelector('.next-page');
     const projectElem = document.querySelector('#projects');
     const projectListElem = document.querySelector('.project-list');
+    const projectList = Array.from(projectListElem.children);
     const backToTopElem = document.querySelector('.back-to-top');
     const categories = {
         selectCategory(elem) {
@@ -232,9 +233,14 @@ import Typing from './typing.js';
     function projectHoverHandler(e) {
         let target = e.target;
         if(target.matches('.item-content')) {
-            const project = target.dataset.project;
+            const projectName = target.dataset.project;
             const img = target.querySelector('.project-info img');
-            switch(project) {
+            projectList.map(project => {
+                if(project.children[0].dataset.project !== projectName) {
+                    project.style.opacity = '0.4';
+                } 
+            })
+            switch(projectName) {
                 case 'carrotGame': 
                         img.src = './src/assets/img/carrot_game.gif';
                     break;
@@ -248,9 +254,14 @@ import Typing from './typing.js';
     function projectMouseOutHandler(e) {
         let target = e.target;
         if(target.matches('.item-content')) {
-            const project = target.dataset.project;
+            const projectName = target.dataset.project;
             const img = target.querySelector('.project-info img');
-            switch(project) {
+            projectList.map(project => {
+                if(project.children[0].dataset.project !== projectName) {
+                    project.style.opacity = '1';
+                } 
+            })
+            switch(projectName) {
                 case 'carrotGame': 
                         img.src = './src/assets/img/carrot_game.png';
                     break;
