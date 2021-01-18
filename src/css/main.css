@@ -12,12 +12,30 @@ section {
   min-height: 100vh;
 }
 
-section:not(:first-child) .container {
+.container {
   position: relative;
   max-width: 900px;
   min-height: inherit;
   margin: 0 auto;
   padding-top: calc(5.5rem + 61px);
+}
+
+/* Scroll bar */
+
+::-webkit-scrollbar {
+  position: absolute;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: gray;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
 }
 
 /* Start Page */
@@ -69,7 +87,9 @@ section:not(:first-child) .container {
   position: relative;
   justify-content: center;
   width: 100%;
+  max-width: unset;
   height: 100%;
+  padding-top: 0;
 }
 
 .container {
