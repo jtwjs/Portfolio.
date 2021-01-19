@@ -46,18 +46,22 @@ import Typing from './typing.js';
         {   
             scrollHeight: 0,
             objs: {
+                projectColumnElem: document.querySelectorAll('.project-column'),
 
             },
             values: {
-
+                projectColumn_opacity: [0, 1, {start: 0.5, end: 0.8}],
+                projectColumn_translateY: [1, 0, {start: 0.5, end: 0.8}],
             }
         },
         {   
             scrollHeight: 0,
             objs: {
-
+                contactContentElem: document.querySelector('#contact .content'),
             },
             values: {
+                contactContentElem_opacity: [0, 1, {start: 0.3, end: 0.8}],
+                contactContentElem_translateY: [1, 0, {start: 0.3, end: 0.8}],
 
             }
         },
@@ -95,6 +99,7 @@ import Typing from './typing.js';
     function scrollLoop() {
         enterNewScene = false;
         prevScrollHeight = 0;
+        console.log(currentScene);
 
         for(let i=0; i<currentScene; i++) {
             prevScrollHeight += sceneInfo[i].scrollHeight;
@@ -143,8 +148,15 @@ import Typing from './typing.js';
                 
                 break;
             case 1:
+                const projectList = Array.from(objs.projectColumnElem);
+                for(const idx in projectList) {
+                    projectList[idx].style.opacity = `${calcValues(values.projectColumn_opacity, currentYOffset)}`;
+                    projectList[idx].style.transform = `translateY(${calcValues(values.projectColumn_translateY, currentYOffset) * 100}px)`;
+                }
                 break;
             case 2:
+                objs.contactContentElem.style.opacity = `${calcValues(values.contactContentElem_opacity, currentYOffset)}`;
+                objs.contactContentElem.style.transform = `translateY(${calcValues(values.contactContentElem_translateY,currentYOffset) * 100}px)`;
                 break;
         }
 
@@ -232,7 +244,7 @@ import Typing from './typing.js';
 
     function projectHoverHandler(e) {
         let target = e.target;
-        if(target.matches('.item-content')) {
+        if(target.matches('.column-content')) {
             const projectName = target.dataset.project;
             const img = target.querySelector('.project-info img');
             projectList.map(project => {
@@ -253,7 +265,7 @@ import Typing from './typing.js';
 
     function projectMouseOutHandler(e) {
         let target = e.target;
-        if(target.matches('.item-content')) {
+        if(target.matches('.column-content')) {
             const projectName = target.dataset.project;
             const img = target.querySelector('.project-info img');
             projectList.map(project => {
