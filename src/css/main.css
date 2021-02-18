@@ -833,7 +833,7 @@ section {
   .project-list {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 300px;
-    gap: 10vw;
+    gap: 40px;
     width: 100%;
     padding: 1rem 10vw 5rem;
     transition: all 0.3s;

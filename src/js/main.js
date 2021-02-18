@@ -1,6 +1,7 @@
 
 import Typing from './typing.js';
 (() => {
+
     const messageArr = ["항상 성장하는", "기본이 충실한"];
     const typing = new Typing(messageArr);
     const mainElem = document.querySelector('#main');
@@ -52,6 +53,8 @@ import Typing from './typing.js';
             values: {
                 projectColumn_opacity: [0, 1, {start: 0.5, end: 0.8}],
                 projectColumn_translateY: [1, 0, {start: 0.5, end: 0.8}],
+                projectColumn_mobile_opacity: [],
+                projectColumn_mobile_translateY: [],
             }
         },
         {   
@@ -99,7 +102,6 @@ import Typing from './typing.js';
     function scrollLoop() {
         enterNewScene = false;
         prevScrollHeight = 0;
-        console.log(currentScene);
 
         for(let i=0; i<currentScene; i++) {
             prevScrollHeight += sceneInfo[i].scrollHeight;
@@ -149,9 +151,30 @@ import Typing from './typing.js';
                 break;
             case 1:
                 const projectList = Array.from(objs.projectColumnElem);
+                function valuesInit(start, end) {
+                    const length = projectList.length;
+                    const ratio = Number((0.42 / length).toFixed(2));
+                    let startValue = 0;
+                    let endValue = 0;
+                    return projectList.map(() => {
+                        startValue += ratio;
+                        endValue = startValue + ratio;
+                        return  [start,end,{start: startValue , end: endValue}];
+                      });
+                }
+
+                values.projectColumn_mobile_opacity = valuesInit(0,1);
+                values.projectColumn_mobile_translateY = valuesInit(1,0);
+                
                 for(const idx in projectList) {
-                    projectList[idx].style.opacity = `${calcValues(values.projectColumn_opacity, currentYOffset)}`;
-                    projectList[idx].style.transform = `translateY(${calcValues(values.projectColumn_translateY, currentYOffset) * 100}px)`;
+                    if(isMobile) {
+                        projectList[idx].style.opacity = `${calcValues(values.projectColumn_mobile_opacity[idx], currentYOffset)}`;
+                        projectList[idx].style.transform = `translateY(${calcValues(values.projectColumn_mobile_translateY[idx], currentYOffset) * 100}px)`;
+                        
+                    } else {
+                        projectList[idx].style.opacity = `${calcValues(values.projectColumn_opacity, currentYOffset)}`;
+                        projectList[idx].style.transform = `translateY(${calcValues(values.projectColumn_translateY, currentYOffset) * 100}px)`;
+                    }
                 }
                 break;
             case 2:
