@@ -40,7 +40,9 @@
 `#canvas` `#html` `#css` `#js`
 ### 요약
 제한시간 내에 움직이는 벌레를 피해서 당근을 수확하는 간단한 게임
+
 HTML5 Canvas API를 활용하여 게임 속 당근과 벌레들의 동적인 움직임을 구현하여 
+
 난이도 있는 게임을 만들었습니다. 
 
 ## 3. [CANVAS를 활용한 반응형 웹사이트](https://github.com/jtwjs/The-Bastad) (2020)
