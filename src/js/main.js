@@ -152,9 +152,10 @@ import Typing from './typing.js';
             case 1:
                 const projectList = Array.from(objs.projectColumnElem);
                 function valuesInit(start, end) {
-                    const length = projectList.length;
-                    const ratio = Number((0.42 / length).toFixed(2));
-                    let startValue = 0;
+                    const length = projectList.length - 1;
+                    const ratio = Number((0.5 / length).toFixed(2));
+                    console.log(ratio);
+                    let startValue = ratio;
                     let endValue = 0;
                     return projectList.map(() => {
                         startValue += ratio;
@@ -162,10 +163,11 @@ import Typing from './typing.js';
                         return  [start,end,{start: startValue , end: endValue}];
                       });
                 }
-
+                
                 values.projectColumn_mobile_opacity = valuesInit(0,1);
                 values.projectColumn_mobile_translateY = valuesInit(1,0);
-                
+                    console.log(values.projectColumn_mobile_opacity);
+
                 for(const idx in projectList) {
                     if(isMobile) {
                         projectList[idx].style.opacity = `${calcValues(values.projectColumn_mobile_opacity[idx], currentYOffset)}`;
@@ -253,7 +255,7 @@ import Typing from './typing.js';
                         projectListElem.setAttribute('class', 'project-list back')
                         break;
                 }
-
+                setLayout();
             });
         }
     }
@@ -282,6 +284,15 @@ import Typing from './typing.js';
                 case 'neighborhood':
                         img.src = './src/assets/img/neighborhood.gif';
                     break;
+                case 'bastad':
+                        img.src = './src/assets/img/bastad.gif';
+                    break;
+                case 'youtube':
+                        img.src = './src/assets/img/youtubeClone.gif';
+                    break;
+                case 'nongshim':
+                        img.src = './src/assets/img/nongshim.gif';
+                    break;
             }
         }
     }
@@ -302,6 +313,15 @@ import Typing from './typing.js';
                     break;
                 case 'neighborhood':
                         img.src = './src/assets/img/neighborhood.png';
+                    break;
+                case 'bastad':
+                        img.src = './src/assets/img/bastad.png';
+                    break;  
+                case 'youtube':
+                        img.src = './src/assets/img/youtubeClone.png';
+                    break;
+                case 'nongshim':
+                        img.src = './src/assets/img/nongshim.png';
                     break;
             }
         }

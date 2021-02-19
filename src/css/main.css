@@ -528,14 +528,22 @@ section {
 
 .project-desc {
   position: relative;
-  padding: 0.5rem 3rem 0.5rem 0.5rem;
+  padding: 0.5rem;
   text-align: start;
   pointer-events: none;
 }
 
-.project-desc span {
-  font-size: 16px;
-  color: #666;
+.column-content:hover .project-desc {
+  padding-right: 3rem;
+}
+
+.column-content:hover .project-title,
+.column-content:hover .project-desc span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fa-chevron-right {
