@@ -36,8 +36,9 @@
 ![그림02](https://user-images.githubusercontent.com/60641307/108470241-01439300-72cd-11eb-8874-be1735aeae45.png)
 
 ## 2. [CANVAS를 활용한 Mini Game](https://github.com/jtwjs/carrotGame-javascript-frontend) (2020)
-![carrot_game](https://user-images.githubusercontent.com/60641307/103437615-fbd2b080-4c6c-11eb-8250-8fc9c6dc0ab7.gif)
 `#canvas` `#html` `#css` `#js`
+
+![carrot_game](https://user-images.githubusercontent.com/60641307/103437615-fbd2b080-4c6c-11eb-8250-8fc9c6dc0ab7.gif)
 ### 요약
 제한시간 내에 움직이는 벌레를 피해서 당근을 수확하는 간단한 게임
 
