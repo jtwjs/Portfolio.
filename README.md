@@ -10,6 +10,7 @@
 5. 농심 기업사이트 Clone Site
 
 ## 1. [이웃# (농수산물 직거래 사이트)](https://github.com/jtwjs/neighborhoodShop-spring-backnd)(2020)
+
 `#Java` `#Spring` `#Oracle` `#Spring security` `#MyBatis`
 
 ![neighborhood](https://user-images.githubusercontent.com/60641307/108474332-9006de80-72d2-11eb-96f7-d1ab508635d9.gif)
@@ -36,9 +37,11 @@
 ![그림02](https://user-images.githubusercontent.com/60641307/108470241-01439300-72cd-11eb-8874-be1735aeae45.png)
 
 ## 2. [CANVAS를 활용한 Mini Game](https://github.com/jtwjs/carrotGame-javascript-frontend) (2020)
+
 `#canvas` `#html` `#css` `#js`
 
 ![carrot_game](https://user-images.githubusercontent.com/60641307/103437615-fbd2b080-4c6c-11eb-8250-8fc9c6dc0ab7.gif)
+
 ### 요약
 제한시간 내에 움직이는 벌레를 피해서 당근을 수확하는 간단한 게임
 
@@ -47,6 +50,7 @@ HTML5 Canvas API를 활용하여 게임 속 당근과 벌레들의 동적인 움
 난이도 있는 게임을 만들었습니다. 
 
 ## 3. [CANVAS를 활용한 반응형 웹사이트](https://github.com/jtwjs/The-Bastad) (2020)
+
 `#canvas` `#html` `#css` `#js`
 
 ![bastad](https://user-images.githubusercontent.com/60641307/108474604-f1c74880-72d2-11eb-894f-986334f4b352.gif)
@@ -56,16 +60,21 @@ HTML5 Canvas API를 활용하여 게임 속 당근과 벌레들의 동적인 움
 순수 자바스크립트와 HTML5 Canvas API를 활용하여 Blending 애니메이션 효과를 주었습니다
 
 ## 4. [YouTube Clone Site](https://github.com/jtwjs/youtube-clone) (2021)
-![youtubeClone](https://user-images.githubusercontent.com/60641307/108474695-10c5da80-72d3-11eb-889d-b277addc79b7.gif)
+
 `#react.js` 
+
+![youtubeClone](https://user-images.githubusercontent.com/60641307/108474695-10c5da80-72d3-11eb-889d-b277addc79b7.gif)
+
 
 ### 요약
 Youtube Data API를 활용하여 youtube site를 클론 코딩하였습니다. 
 
 
 ## 5. [농심 기업사이트 Clone Coding](https://github.com/jtwjs/nongshim_clone) (2021)
-![nongshim](https://user-images.githubusercontent.com/60641307/108475425-05bf7a00-72d4-11eb-9f07-656881fe4d4e.gif)
+
 `#react.js` 
+
+![nongshim](https://user-images.githubusercontent.com/60641307/108475425-05bf7a00-72d4-11eb-9f07-656881fe4d4e.gif)
 
 ### 요약
 실제 농심 기업사이트를 클론 코딩하였습니다.
